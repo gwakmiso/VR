@@ -1,0 +1,26 @@
+<?php
+$servername = "localhost";   
+$username = "root";   //자신이 생성한 username (따로 생성한 적이 없다면 root)
+$password = "111111";       //자신이 생성한 비밀번호(없다면 "")
+$dbname = "member1";    //자신이 데이터를 얻어올 데이터베이스 이름
+
+$conn = new mysqli($username, $age);
+
+if($conn -> connect_error){
+	die("Connection failed : " . $conn -> connect_error);
+}
+
+$sql = "SELECT * FROM test1";  //sql문으로 자신이 원하는 데이터를 select하는 명령어를 작성한다.
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        //<br>을 제외한 모든 " "안의 내용은 자신의 테이블에서 뽑아올 컬럼명이다.
+        echo " First: " . $row["First"]. "<br>"."Second: " . $row["Second"]."<br>"."Thrid: ".$row["Third"]. "<br>";
+    }
+} else {
+    echo "0 results";
+}
+$conn->close();
+?>
