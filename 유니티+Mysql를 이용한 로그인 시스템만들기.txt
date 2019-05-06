@@ -1,12 +1,10 @@
-https://www.youtube.com/watch?v=8ZD9qRjYH90
-
 using UnityEgine;
 using System.Collections;
 using UnityEngine.UI;
 public class Gamemanager : MonoBchaviour{
 
 [Header("LoginPanel")]
-public InputField IDInputField; //Unity∆ƒ¿œ∏Ì
+public InputField IDInputField; //Unity√Ü√Ñ√Ä√è¬∏√≠
 public InputField PassInputField;
 [Header("CreateAccountPanel")]
 public InputField IDInputField;
@@ -16,7 +14,7 @@ public InputField PassInputField;
 public string LoginUrl;
 
 void start(){
-LoginUrl = "¿•.com/Login.php";
+LoginUrl = "√Ä¬•.com/Login.php";
 }
 
 public void LoginBtn()
