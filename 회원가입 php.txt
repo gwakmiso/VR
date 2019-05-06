@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
         //<br>을 제외한 모든 " "안의 내용은 자신의 테이블에서 뽑아올 컬럼명이다.
-        echo " First: " . $row["First"]. "<br>"."Second: " . $row["Second"]."<br>"."Thrid: ".$row["Third"]. "<br>";
+        echo " name: " . $row["name"]. "<br>"."age: " . $row["age"]. "<br>";
     }
 } else {
     echo "0 results";
