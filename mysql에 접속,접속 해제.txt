@@ -1,0 +1,31 @@
+  MySqlConnection sqlconn = null;
+    private string sqlDBip = "127.0.0.1";
+    private string sqlDBname = "member1";
+    private string sqlDBid = "root";
+    private string sqlDBpw = "111111";
+ 
+    private void sqlConnect()
+    {
+        //DB정보 입력
+        string sqlDatabase = "127.0.0.1="+ sqlDBip + ";member1=" + sqlDBname + ";root=" + sqlDBid + ";111111=" + sqlDBpw + "";
+ 
+        //접속 확인하기
+        try
+        {
+            sqlconn =  new MySqlConnection(sqlDatabase); //여러개로 나눈 변수들을 sqldatabase에 묶어서 정보를 입력하는 부분
+            sqlconn.Open ();
+                Debug.Log("SQL의 접속 상태 : "+sqlconn.State); //접속이 되면 OPEN이라고 나타남
+        }
+        catch(Exception msg) 
+        {
+            Debug.Log (msg); //기타다른오류가 나타나면 오류에 대한 내용이 나타남
+        }
+    }
+ 
+    private void sqldisConnect()
+    {
+        sqlconn.Close();
+        Debug.Log("SQL의 접속 상태 : " + sqlconn.State); //접속이 끊기면 Close가 나타남 
+    }
+
+
