@@ -1,0 +1,29 @@
+<?php
+$servername = "localhost";
+$server_username ="디비아이디";
+$server_password = "디비비밀번호";
+$dbname = "디비이름";
+
+$username = $_POST["usernamePost"];
+$email = $_POST["emailPost"];
+$password = $_POST["passwordPost"];
+
+$conn = new mysqli($servername, $server_username, $server_password, $dbname);
+
+if(!$conn)
+{
+  die("Connection Failed.". mysqli_connect_error());
+}
+$sql = "INSERT INTO unityinput (username, email, password) VALUES ('".$username."','".$email."','".$password."')";
+$result = mysqli_query($conn, $sql);
+
+if($result==1)
+{
+  echo "저장성공";
+}else{
+  echo "저장실패";
+}
+//저장성공하면 result값이 1값이 나타남.
+?>
+[출처] PHP + unity 유니티에서 php를 통하여 phpMyadmin에 데이터 넣기|작성자 기린이아빠
+
