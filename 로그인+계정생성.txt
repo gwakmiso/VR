@@ -9,12 +9,15 @@ public InputField PassInputField;
 [Header("CreateAccountPanel")]
 public InputField IDInputField;
 public InputField PassInputField;
+public GameObject CreateAccountField;
 
 
 public string LoginUrl;
+public string CreateUrl;
 
 void start(){
-LoginUrl = "웹.com/Login.php";
+LoginUrl = "웹.com/Login.php"; //Login.php는 php파일명
+CreateUrl = "웹.com/CreateAccount.php";
 }
 
 public void LoginBtn()
@@ -29,17 +32,39 @@ Debug.Log(PassInputField.text);
  
 WWWForm form = new WWWForm();
 form.AddField("Input_user", IDInputField.text);
-form.AddFoe;d("Input_pass", PassInputField.text);
+form.AddField("Input_pass", PassInputField.text);
 
 WWW webRequest = new WWW(LoginUrl, form);
 yield return webRequest;
 
 Debug.Log(webRequest.text);
 
-/yield return null;
+//yield return null;
+}
+
+public void OpenCreateAccountBtn()
+{
+CreateAccountPanelObj.SetActive(true)
+//StartCoroutine(LoginCo());
 }
 
 public void CreateAccountBtn()
 {
-//StartCoroutine(LoginCo())
+StartCoroutine(CreateCo());
+}
+
+IEnumerator CreateCo()
+{
+ 
+WWWForm form = new WWWForm();
+form.AddField("Input_user", IDInputField.text);
+form.AddField("Input_pass", PassInputField.text);
+form.AddField("Input_info", "회원");
+
+WWW webRequest = new WWW(CreateUrl, form);
+yield return webRequest;
+
+Debug.Log(webRequest.text);
+
+yield return null;
 }
