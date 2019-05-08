@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class Gamemanager : MonoBchaviour{
 
 [Header("LoginPanel")]
-public InputField IDInputField; //UnityÆÄÀÏ¸í
+public InputField IDInputField; //UnityÃ†Ã„Ã€ÃÂ¸Ã­
 public InputField PassInputField;
 [Header("CreateAccountPanel")]
 public InputField IDInputField;
@@ -14,7 +14,7 @@ public InputField PassInputField;
 public string LoginUrl;
 
 void start(){
-LoginUrl = "À¥.com/Login.php";
+LoginUrl = "Ã€Â¥.com/Login.php";
 }
 
 public void LoginBtn()
